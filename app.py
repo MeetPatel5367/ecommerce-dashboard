@@ -53,6 +53,7 @@ def load_data():
 
     return monthly_sales, customer_summary
 
+
 monthly_sales, customer_summary = load_data()
 
 # ---------------------------------------------------------
@@ -67,8 +68,10 @@ def get_quarter(month):
         return "Q3"
     return "Q4"
 
+
 def format_currency(value):
     return f"${value:,.2f}"
+
 
 def safe_metric(series, func="sum"):
     if series.empty:
@@ -86,6 +89,7 @@ def safe_metric(series, func="sum"):
     if func == "std":
         return series.std()
     return 0
+
 
 # ---------------------------------------------------------
 # SIDEBAR
@@ -429,9 +433,8 @@ with tab1:
     if best_month_row is not None and worst_month_row is not None:
         best_worst_text = (
             f"The highest revenue month is **Month {int(best_month_row['month'])}** "
-            f"with **{format_currency(best_month_row['monthly_revenue'])}**, while the lowest "
-            f"revenue month is **Month {int(worst_month_row['month'])}** with "
-            f"**{format_currency(worst_month_row['monthly_revenue'])}**."
+            f"with **{format_currency(best_month_row['monthly_revenue'])}**, while the lowest revenue month is "
+            f"**Month {int(worst_month_row['month'])}** with **{format_currency(worst_month_row['monthly_revenue'])}**."
         )
         st.markdown(best_worst_text)
 
@@ -469,8 +472,6 @@ with tab1:
     """, unsafe_allow_html=True)
 
     st.markdown('</div>', unsafe_allow_html=True)
-
-
 
 with tab2:
     a, b = st.columns([2, 1])
