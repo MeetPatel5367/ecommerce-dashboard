@@ -420,29 +420,25 @@ tab1, tab2, tab3, tab4, tab5, tab6, tab7 = st.tabs([
 ])
 
 with tab1:
-    st.markdown('<div class="section-card">', unsafe_allow_html=True)
-    st.markdown('<div class="section-title">Executive Overview</div>', unsafe_allow_html=True)
+    st.subheader("Executive Overview")
 
-    overview_text = (
-        f"For **{selected_year}**, total revenue is **{format_currency(total_revenue)}** "
-        f"with average monthly revenue of **{format_currency(avg_revenue)}** and "
-        f"median revenue of **{format_currency(median_revenue)}**."
+    st.write(
+        f"For {selected_year}, total revenue is {format_currency(total_revenue)} "
+        f"with average monthly revenue of {format_currency(avg_revenue)} "
+        f"and median revenue of {format_currency(median_revenue)}."
     )
-    st.markdown(overview_text)
 
     if best_month_row is not None and worst_month_row is not None:
-        best_worst_text = (
-            f"The highest revenue month is **Month {int(best_month_row['month'])}** "
-            f"with **{format_currency(best_month_row['monthly_revenue'])}**, while the lowest revenue month is "
-            f"**Month {int(worst_month_row['month'])}** with **{format_currency(worst_month_row['monthly_revenue'])}**."
+        st.write(
+            f"The highest revenue month is Month {int(best_month_row['month'])} "
+            f"with {format_currency(best_month_row['monthly_revenue'])}, while the lowest revenue month is "
+            f"Month {int(worst_month_row['month'])} with {format_currency(worst_month_row['monthly_revenue'])}."
         )
-        st.markdown(best_worst_text)
 
-    growth_text = (
-        f"The yearly pattern shows **{positive_growth}** positive-growth months and "
-        f"**{negative_growth}** negative-growth months."
+    st.write(
+        f"The yearly pattern shows {positive_growth} positive-growth months and "
+        f"{negative_growth} negative-growth months."
     )
-    st.markdown(growth_text)
 
     if analysis_mode == "Revenue Focus":
         st.markdown("""
@@ -471,7 +467,6 @@ with tab1:
     </div>
     """, unsafe_allow_html=True)
 
-    st.markdown('</div>', unsafe_allow_html=True)
 
 with tab2:
     a, b = st.columns([2, 1])
