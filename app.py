@@ -467,9 +467,6 @@ with tab1:
     </div>
     """, unsafe_allow_html=True)
 
-
-
-
 with tab2:
     a, b = st.columns([2, 1])
 
