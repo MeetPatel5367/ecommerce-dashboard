@@ -53,6 +53,7 @@ def load_data():
 
     return monthly_sales, customer_summary
 
+
 monthly_sales, customer_summary = load_data()
 
 # ---------------------------------------------------------
@@ -67,8 +68,10 @@ def get_quarter(month):
         return "Q3"
     return "Q4"
 
+
 def format_currency(value):
-    return f"${float(value):,.2f}"
+    return f"${value:,.2f}"
+
 
 def safe_metric(series, func="sum"):
     if series.empty:
@@ -86,6 +89,7 @@ def safe_metric(series, func="sum"):
     if func == "std":
         return series.std()
     return 0
+
 
 # ---------------------------------------------------------
 # SIDEBAR
@@ -277,11 +281,9 @@ st.markdown("""
     }
 
     .metric-value {
-        font-size: 1.55rem;
+        font-size: 1.85rem;
         font-weight: 800;
         color: #f8fafc;
-        line-height: 1.2;
-        word-break: break-word;
     }
 
     .section-card {
@@ -444,12 +446,14 @@ with tab1:
             <b>Revenue Focus:</b> This mode prioritises revenue performance, seasonal movement, and month-on-month change.
         </div>
         """, unsafe_allow_html=True)
+
     elif analysis_mode == "Customer Focus":
         st.markdown(f"""
         <div class="info-box">
             <b>Customer Focus:</b> The highest customer spending is <b>{format_currency(top_customer_spent)}</b>, showing concentrated customer value.
         </div>
         """, unsafe_allow_html=True)
+
     else:
         st.markdown("""
         <div class="info-box">
@@ -463,6 +467,8 @@ with tab1:
     </div>
     """, unsafe_allow_html=True)
 
+
+
 with tab2:
     a, b = st.columns([2, 1])
 
@@ -475,10 +481,10 @@ with tab2:
     with b:
         st.markdown('<div class="section-card">', unsafe_allow_html=True)
         st.markdown('<div class="section-title">Revenue Statistics</div>', unsafe_allow_html=True)
-        st.write(f"Maximum revenue: {format_currency(max_revenue)}")
-        st.write(f"Minimum revenue: {format_currency(min_revenue)}")
-        st.write(f"Median revenue: {format_currency(median_revenue)}")
-        st.write(f"Standard deviation: {format_currency(revenue_std if pd.notna(revenue_std) else 0)}")
+        st.write(f"**Maximum revenue:** {format_currency(max_revenue)}")
+        st.write(f"**Minimum revenue:** {format_currency(min_revenue)}")
+        st.write(f"**Median revenue:** {format_currency(median_revenue)}")
+        st.write(f"**Standard deviation:** {format_currency(revenue_std if pd.notna(revenue_std) else 0)}")
         st.markdown("""
         <div class="info-box">
             Revenue variation can indicate seasonality, campaign impact, or operational performance shifts.
@@ -512,10 +518,10 @@ with tab3:
     with y:
         st.markdown('<div class="section-card">', unsafe_allow_html=True)
         st.markdown('<div class="section-title">Customer Metrics</div>', unsafe_allow_html=True)
-        st.write(f"Average spending: {format_currency(avg_customer_spent)}")
-        st.write(f"Median spending: {format_currency(median_customer_spent)}")
-        st.write(f"Highest spending: {format_currency(top_customer_spent)}")
-        st.write(f"Customers shown: {len(top_customers)}")
+        st.write(f"**Average spending:** {format_currency(avg_customer_spent)}")
+        st.write(f"**Median spending:** {format_currency(median_customer_spent)}")
+        st.write(f"**Highest spending:** {format_currency(top_customer_spent)}")
+        st.write(f"**Customers shown:** {len(top_customers)}")
         st.markdown("""
         <div class="info-box">
             High-value customers create strong opportunities for retention and targeted marketing analysis.
@@ -540,9 +546,9 @@ with tab4:
     with q:
         st.markdown('<div class="section-card">', unsafe_allow_html=True)
         st.markdown('<div class="section-title">Segment Interpretation</div>', unsafe_allow_html=True)
-        st.write("Low Value: below 100")
-        st.write("Medium Value: 100 to 500")
-        st.write("High Value: above 500")
+        st.write("**Low Value:** below 100")
+        st.write("**Medium Value:** 100 to 500")
+        st.write("**High Value:** above 500")
         st.markdown("""
         <div class="info-box">
             Segmentation supports easier business interpretation and prepares the project for future machine learning use.
