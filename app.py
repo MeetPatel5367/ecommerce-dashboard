@@ -421,56 +421,64 @@ with tab1:
 
     st.markdown(
         f"""
-        For **{selected_year}**, total revenue is **{format_currency(total_revenue)}** with average monthly revenue of
-        **{format_currency(avg_revenue)}** and median revenue of **{format_currency(median_revenue)}**.
+        For **{selected_year}**, total revenue is **{format_currency(total_revenue)}** with average monthly revenue of **{format_currency(avg_revenue)}** and median revenue of **{format_currency(median_revenue)}**.
         """
     )
 
     if best_month_row is not None and worst_month_row is not None:
         st.markdown(
             f"""
-            The highest revenue month is **Month {int(best_month_row['month'])}** with
-            **{format_currency(best_month_row['monthly_revenue'])}**, while the lowest revenue month is
-            **Month {int(worst_month_row['month'])}** with **{format_currency(worst_month_row['monthly_revenue'])}**.
+            The highest revenue month is **Month {int(best_month_row['month'])}** with **{format_currency(best_month_row['monthly_revenue'])}**, while the lowest revenue month is **Month {int(worst_month_row['month'])}** with **{format_currency(worst_month_row['monthly_revenue'])}**.
             """
         )
 
     st.markdown(
         f"""
-        The yearly pattern shows **{positive_growth}** positive-growth months and
-        **{negative_growth}** negative-growth months.
+        The yearly pattern shows **{positive_growth}** positive-growth months and **{negative_growth}** negative-growth months.
         """
     )
 
     if analysis_mode == "Revenue Focus":
-        st.markdown("""
-        <div class="info-box">
-            <b>Revenue Focus:</b> This mode prioritises revenue performance, seasonal movement, and month-on-month change.
-        </div>
-        """, unsafe_allow_html=True)
+        st.markdown(
+            """
+            <div class="info-box">
+                <b>Revenue Focus:</b> This mode prioritises revenue performance, seasonal movement, and month-on-month change.
+            </div>
+            """,
+            unsafe_allow_html=True
+        )
 
     elif analysis_mode == "Customer Focus":
-        st.markdown(f"""
-        <div class="info-box">
-            <b>Customer Focus:</b> The highest customer spending is <b>{format_currency(top_customer_spent)}</b>,
-            showing concentrated customer value.
-        </div>
-        """, unsafe_allow_html=True)
+        st.markdown(
+            f"""
+            <div class="info-box">
+                <b>Customer Focus:</b> The highest customer spending is <b>{format_currency(top_customer_spent)}</b>, showing concentrated customer value.
+            </div>
+            """,
+            unsafe_allow_html=True
+        )
 
     else:
-        st.markdown("""
-        <div class="info-box">
-            <b>Balanced View:</b> This dashboard combines financial analytics and customer intelligence in one interface.
-        </div>
-        """, unsafe_allow_html=True)
+        st.markdown(
+            """
+            <div class="info-box">
+                <b>Balanced View:</b> This dashboard combines financial analytics and customer intelligence in one interface.
+            </div>
+            """,
+            unsafe_allow_html=True
+        )
 
-    st.markdown("""
-    <div class="success-box">
-        <b>Research Value:</b> The dashboard transforms processed data into readable, interactive, and decision-oriented insight.
-    </div>
-    """, unsafe_allow_html=True)
+    st.markdown(
+        """
+        <div class="success-box">
+            <b>Research Value:</b> The dashboard transforms processed data into readable, interactive, and decision-oriented insight.
+        </div>
+        """,
+        unsafe_allow_html=True
+    )
 
     st.markdown('</div>', unsafe_allow_html=True)
+
 
 with tab2:
     a, b = st.columns([2, 1])
