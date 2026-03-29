@@ -173,6 +173,29 @@ h1, h2, h3 {
 hr {
     border-color: #24334b;
 }
+/* HIDE STREAMLIT HEADER */
+header[data-testid="stHeader"] {
+    display: none;
+}
+
+div[data-testid="stToolbar"] {
+    display: none;
+}
+
+div[data-testid="stDecoration"] {
+    display: none;
+}
+
+#MainMenu {
+    visibility: hidden;
+}
+
+footer {
+    visibility: hidden;
+}
+.block-container {
+    padding-top: 0.5rem !important;
+}
 </style>
 """, unsafe_allow_html=True)
 
