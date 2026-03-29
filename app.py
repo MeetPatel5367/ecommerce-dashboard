@@ -10,101 +10,168 @@ st.set_page_config(
 )
 
 # -----------------------------
-# STYLING
+# CUSTOM CSS
 # -----------------------------
 st.markdown("""
 <style>
 :root {
-    --bg: #0f172a;
-    --card: #111827;
-    --soft: #1f2937;
-    --line: #334155;
-    --text: #e5e7eb;
-    --muted: #94a3b8;
+    --bg-dark: #081120;
+    --bg-mid: #0f172a;
+    --card: rgba(15, 23, 42, 0.88);
+    --card-border: #22304a;
+    --text-main: #f8fafc;
+    --text-soft: #cbd5e1;
+    --text-muted: #94a3b8;
     --accent: #38bdf8;
-    --accent2: #22c55e;
-    --accent3: #f59e0b;
+    --accent-2: #6366f1;
+    --accent-3: #22c55e;
+    --warning: #f59e0b;
 }
+
 .stApp {
-    background: linear-gradient(180deg, #0b1220 0%, #111827 100%);
-    color: var(--text);
+    background: radial-gradient(circle at top left, #0b1d3a 0%, #081120 45%, #050b16 100%);
+    color: var(--text-main);
 }
-section[data-testid="stSidebar"] {
-    background: #0b1220;
-    border-right: 1px solid #1e293b;
-}
-section[data-testid="stSidebar"] * {
-    color: #e5e7eb !important;
-}
+
 .block-container {
     padding-top: 1.2rem;
     padding-bottom: 2rem;
-    max-width: 1400px;
+    max-width: 1450px;
 }
+
+section[data-testid="stSidebar"] {
+    background: linear-gradient(180deg, #07101e 0%, #0b1628 100%);
+    border-right: 1px solid #1f2b40;
+}
+
+section[data-testid="stSidebar"] * {
+    color: #f8fafc !important;
+}
+
+section[data-testid="stSidebar"] label,
+section[data-testid="stSidebar"] p,
+section[data-testid="stSidebar"] div {
+    color: #f8fafc !important;
+}
+
+section[data-testid="stSidebar"] .stSelectbox div[data-baseweb="select"] > div {
+    background: #f8fafc !important;
+    color: #0f172a !important;
+    border-radius: 10px !important;
+    border: 1px solid #cbd5e1 !important;
+}
+
+section[data-testid="stSidebar"] .stSelectbox svg {
+    fill: #0f172a !important;
+}
+
+section[data-testid="stSidebar"] .stDownloadButton button {
+    background: #f8fafc !important;
+    color: #0f172a !important;
+    border: none !important;
+    border-radius: 10px !important;
+    font-weight: 600 !important;
+}
+
+section[data-testid="stSidebar"] .stCheckbox label {
+    color: #f8fafc !important;
+    font-weight: 500 !important;
+}
+
 h1, h2, h3 {
     color: #f8fafc !important;
 }
+
 .dashboard-title {
-    font-size: 2.2rem;
+    font-size: 2.35rem;
     font-weight: 800;
-    color: #f8fafc;
+    color: #ffffff;
     margin-bottom: 0.2rem;
+    letter-spacing: 0.2px;
 }
+
 .dashboard-subtitle {
-    color: #94a3b8;
+    color: #cbd5e1;
     font-size: 1rem;
-    margin-bottom: 1.2rem;
+    margin-bottom: 1rem;
+    max-width: 1100px;
 }
+
 .kpi-card {
-    background: rgba(17, 24, 39, 0.9);
-    border: 1px solid #263244;
+    background: rgba(15, 23, 42, 0.92);
+    border: 1px solid #22304a;
     border-radius: 18px;
-    padding: 18px 18px 14px 18px;
-    box-shadow: 0 6px 18px rgba(0,0,0,0.18);
+    padding: 18px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.22);
+    min-height: 120px;
 }
+
 .kpi-label {
     color: #94a3b8;
     font-size: 0.92rem;
-    margin-bottom: 6px;
+    margin-bottom: 10px;
 }
+
 .kpi-value {
-    color: #f8fafc;
-    font-size: 1.9rem;
+    color: #ffffff;
+    font-size: 1.95rem;
     font-weight: 800;
+    line-height: 1.1;
 }
+
 .section-card {
-    background: rgba(17, 24, 39, 0.88);
-    border: 1px solid #263244;
+    background: rgba(15, 23, 42, 0.90);
+    border: 1px solid #22304a;
     border-radius: 18px;
-    padding: 16px;
-    box-shadow: 0 6px 18px rgba(0,0,0,0.16);
+    padding: 18px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.18);
     margin-bottom: 16px;
 }
+
 .insight-card {
-    background: rgba(14, 165, 233, 0.10);
+    background: rgba(56, 189, 248, 0.10);
     border: 1px solid rgba(56, 189, 248, 0.35);
     border-left: 4px solid #38bdf8;
     border-radius: 14px;
     padding: 12px 14px;
     margin-top: 10px;
     color: #dbeafe;
+    font-size: 0.96rem;
 }
-div[data-testid="stMetric"] {
-    background: rgba(17, 24, 39, 0.88);
-    border: 1px solid #263244;
-    padding: 10px;
-    border-radius: 16px;
+
+.summary-card {
+    background: rgba(99, 102, 241, 0.10);
+    border: 1px solid rgba(99, 102, 241, 0.35);
+    border-left: 4px solid #6366f1;
+    border-radius: 14px;
+    padding: 14px 16px;
+    color: #e0e7ff;
+    margin-bottom: 18px;
 }
+
+.small-note {
+    color: #94a3b8;
+    font-size: 0.92rem;
+}
+
 [data-baseweb="tab-list"] {
-    gap: 8px;
+    gap: 10px;
 }
+
 [data-baseweb="tab"] {
-    background: #0f172a !important;
-    border-radius: 10px 10px 0 0 !important;
+    background: rgba(15, 23, 42, 0.95) !important;
+    border: 1px solid #22304a !important;
+    border-radius: 12px 12px 0 0 !important;
     padding: 10px 16px !important;
 }
+
+[data-baseweb="tab"][aria-selected="true"] {
+    color: #38bdf8 !important;
+    border-bottom: 2px solid #38bdf8 !important;
+}
+
 hr {
-    border-color: #223046;
+    border-color: #24334b;
 }
 </style>
 """, unsafe_allow_html=True)
@@ -123,7 +190,7 @@ def load_data():
 products, customers, monthly, reviews = load_data()
 
 # -----------------------------
-# PREP
+# PREP DATA
 # -----------------------------
 products["product_category_name"] = products["product_category_name"].fillna("unknown")
 customers["customer_city"] = customers["customer_city"].fillna("unknown")
@@ -145,30 +212,29 @@ category_revenue = (
     .sort_values("total_revenue", ascending=False)
 )
 
-low_category_revenue = (
-    products.groupby("product_category_name", as_index=False)["total_revenue"]
-    .sum()
-    .sort_values("total_revenue", ascending=True)
-    .head(10)
-)
-
-top_customers = customers.sort_values("total_spent", ascending=False).head(10)
+top_customers_all = customers.sort_values("total_spent", ascending=False)
 
 # -----------------------------
 # SIDEBAR
 # -----------------------------
 st.sidebar.markdown("## ⚙ Dashboard Controls")
+st.sidebar.markdown("Use these filters to explore the analytical results.")
 
-years = ["All"] + sorted(monthly["order_year"].dropna().astype(int).unique().tolist()) if "order_year" in monthly.columns else ["All"]
-selected_year = st.sidebar.selectbox("Select year", years)
+year_options = ["All"] + sorted(monthly["order_year"].dropna().astype(int).unique().tolist()) if "order_year" in monthly.columns else ["All"]
+selected_year = st.sidebar.selectbox("Select year", year_options)
 
-categories = ["All"] + sorted(products["product_category_name"].dropna().unique().tolist())
-selected_category = st.sidebar.selectbox("Select category", categories)
+category_options = ["All"] + sorted(products["product_category_name"].dropna().unique().tolist())
+selected_category = st.sidebar.selectbox("Select product category", category_options)
 
-show_tables = st.sidebar.toggle("Show detailed tables", value=False)
+state_options = ["All"] + sorted(customers["customer_state"].dropna().unique().tolist()) if "customer_state" in customers.columns else ["All"]
+selected_state = st.sidebar.selectbox("Select customer state", state_options)
+
+top_n = st.sidebar.slider("Select number of categories/customers", 5, 20, 10)
+
+show_tables = st.sidebar.checkbox("Show detailed tables", value=False)
 
 st.sidebar.markdown("---")
-st.sidebar.markdown("### Downloads")
+st.sidebar.markdown("### ⬇ Downloads")
 st.sidebar.download_button(
     "Download products data",
     products.to_csv(index=False),
@@ -195,7 +261,7 @@ st.sidebar.download_button(
 )
 
 # -----------------------------
-# FILTERS
+# FILTER DATA
 # -----------------------------
 filtered_monthly = monthly.copy()
 if selected_year != "All" and "order_year" in filtered_monthly.columns:
@@ -205,36 +271,56 @@ filtered_products = products.copy()
 if selected_category != "All":
     filtered_products = filtered_products[filtered_products["product_category_name"] == selected_category]
 
+filtered_customers = customers.copy()
+if selected_state != "All" and "customer_state" in filtered_customers.columns:
+    filtered_customers = filtered_customers[filtered_customers["customer_state"] == selected_state]
+
 filtered_category_revenue = (
     filtered_products.groupby("product_category_name", as_index=False)["total_revenue"]
     .sum()
     .sort_values("total_revenue", ascending=False)
 )
 
+low_category_revenue = (
+    filtered_products.groupby("product_category_name", as_index=False)["total_revenue"]
+    .sum()
+    .sort_values("total_revenue", ascending=True)
+    .head(top_n)
+)
+
+top_products = filtered_category_revenue.head(top_n)
+top_customers = filtered_customers.sort_values("total_spent", ascending=False).head(top_n)
+
 # -----------------------------
 # HEADER
 # -----------------------------
 st.markdown('<div class="dashboard-title">E-commerce Intelligence Dashboard</div>', unsafe_allow_html=True)
 st.markdown(
-    '<div class="dashboard-subtitle">A professional decision-support dashboard built from the Gold layer of the Lakehouse pipeline. It presents revenue, customer, product, and review insights in a clean executive format.</div>',
+    '<div class="dashboard-subtitle">An advanced executive dashboard developed from the Gold layer of the Lakehouse pipeline. It supports professional analysis of revenue trends, customer behaviour, product performance, and review outcomes through interactive filters and modern visual design.</div>',
     unsafe_allow_html=True
 )
 
+st.markdown("""
+<div class="summary-card">
+<b>Executive Summary:</b> This dashboard translates the final Gold-layer outputs into a professional business intelligence interface. It allows stakeholders to explore which categories generate the most revenue, which customer segments spend the most, how revenue changes over time, and how customer satisfaction varies across product groups.
+</div>
+""", unsafe_allow_html=True)
+
 # -----------------------------
-# KPIs
+# KPI CARDS
 # -----------------------------
-total_revenue = products["total_revenue"].sum() if "total_revenue" in products.columns else 0
-total_orders = int(products["total_orders"].sum()) if "total_orders" in products.columns else 0
-total_customers = int(customers["customer_unique_id"].nunique()) if "customer_unique_id" in customers.columns else len(customers)
+total_revenue = filtered_products["total_revenue"].sum() if "total_revenue" in filtered_products.columns else 0
+total_orders = int(filtered_products["total_orders"].sum()) if "total_orders" in filtered_products.columns else 0
+total_customers = int(filtered_customers["customer_unique_id"].nunique()) if "customer_unique_id" in filtered_customers.columns else len(filtered_customers)
 avg_review = reviews["avg_review_score"].mean() if "avg_review_score" in reviews.columns else 0
 
 k1, k2, k3, k4 = st.columns(4)
 with k1:
-    st.markdown(f'<div class="kpi-card"><div class="kpi-label">Total Revenue</div><div class="kpi-value">{total_revenue:,.2f}</div></div>', unsafe_allow_html=True)
+    st.markdown(f'<div class="kpi-card"><div class="kpi-label">Filtered Revenue</div><div class="kpi-value">{total_revenue:,.2f}</div></div>', unsafe_allow_html=True)
 with k2:
-    st.markdown(f'<div class="kpi-card"><div class="kpi-label">Total Orders</div><div class="kpi-value">{total_orders:,}</div></div>', unsafe_allow_html=True)
+    st.markdown(f'<div class="kpi-card"><div class="kpi-label">Filtered Orders</div><div class="kpi-value">{total_orders:,}</div></div>', unsafe_allow_html=True)
 with k3:
-    st.markdown(f'<div class="kpi-card"><div class="kpi-label">Total Customers</div><div class="kpi-value">{total_customers:,}</div></div>', unsafe_allow_html=True)
+    st.markdown(f'<div class="kpi-card"><div class="kpi-label">Filtered Customers</div><div class="kpi-value">{total_customers:,}</div></div>', unsafe_allow_html=True)
 with k4:
     st.markdown(f'<div class="kpi-card"><div class="kpi-label">Average Review Score</div><div class="kpi-value">{avg_review:.2f}</div></div>', unsafe_allow_html=True)
 
@@ -243,10 +329,12 @@ st.markdown("")
 # -----------------------------
 # TABS
 # -----------------------------
-tab1, tab2, tab3, tab4 = st.tabs(["Overview", "Products", "Customers", "Reviews"])
+tab1, tab2, tab3, tab4, tab5 = st.tabs(
+    ["Overview", "Products", "Customers", "Reviews", "Research Notes"]
+)
 
 # -----------------------------
-# OVERVIEW
+# OVERVIEW TAB
 # -----------------------------
 with tab1:
     left, right = st.columns((1.25, 1))
@@ -267,23 +355,22 @@ with tab1:
                 plot_bgcolor="rgba(0,0,0,0)",
                 margin=dict(l=10, r=10, t=10, b=10),
                 xaxis_title="Month",
-                yaxis_title="Revenue",
+                yaxis_title="Monthly Revenue",
                 height=360
             )
             st.plotly_chart(fig_line, use_container_width=True)
             st.markdown(
-                '<div class="insight-card"><b>Insight:</b> The monthly revenue pattern shows how sales evolve over time and helps identify growth periods, seasonal shifts, and anomalies.</div>',
+                '<div class="insight-card"><b>Insight:</b> The revenue trend helps identify seasonal demand patterns and periods of strong or weak commercial performance.</div>',
                 unsafe_allow_html=True
             )
         st.markdown('</div>', unsafe_allow_html=True)
 
     with right:
         st.markdown('<div class="section-card">', unsafe_allow_html=True)
-        st.subheader("Top Product Categories")
-        top10 = filtered_category_revenue.head(10)
-        if not top10.empty:
+        st.subheader("Top Categories by Revenue")
+        if not top_products.empty:
             fig_bar = px.bar(
-                top10,
+                top_products,
                 x="total_revenue",
                 y="product_category_name",
                 orientation="h",
@@ -300,142 +387,153 @@ with tab1:
                 yaxis=dict(categoryorder="total ascending")
             )
             st.plotly_chart(fig_bar, use_container_width=True)
-            top_cat = top10.iloc[0]["product_category_name"]
+            top_cat = top_products.iloc[0]["product_category_name"]
             st.markdown(
-                f'<div class="insight-card"><b>Insight:</b> The strongest category is <b>{top_cat}</b>, indicating demand concentration in a limited number of product areas.</div>',
+                f'<div class="insight-card"><b>Insight:</b> The strongest category in the current filtered view is <b>{top_cat}</b>, indicating concentration of demand in a limited set of product areas.</div>',
                 unsafe_allow_html=True
             )
         st.markdown('</div>', unsafe_allow_html=True)
 
-    c1, c2 = st.columns((1, 1))
+    c1, c2 = st.columns(2)
     with c1:
         st.markdown('<div class="section-card">', unsafe_allow_html=True)
         st.subheader("Low Performing Categories")
-        fig_donut = px.pie(
-            low_category_revenue,
-            names="product_category_name",
-            values="total_revenue",
-            hole=0.58,
-            template="plotly_dark"
-        )
-        fig_donut.update_traces(textposition="inside", textinfo="percent")
-        fig_donut.update_layout(
-            paper_bgcolor="rgba(0,0,0,0)",
-            plot_bgcolor="rgba(0,0,0,0)",
-            margin=dict(l=10, r=10, t=10, b=10),
-            height=360,
-            showlegend=True,
-            legend=dict(orientation="v")
-        )
-        st.plotly_chart(fig_donut, use_container_width=True)
-        st.markdown(
-            '<div class="insight-card"><b>Insight:</b> These categories contribute the least revenue and may require review, repositioning, or removal to improve portfolio efficiency.</div>',
-            unsafe_allow_html=True
-        )
+        if not low_category_revenue.empty:
+            fig_donut = px.pie(
+                low_category_revenue,
+                names="product_category_name",
+                values="total_revenue",
+                hole=0.62,
+                template="plotly_dark"
+            )
+            fig_donut.update_traces(textposition="inside", textinfo="percent")
+            fig_donut.update_layout(
+                paper_bgcolor="rgba(0,0,0,0)",
+                plot_bgcolor="rgba(0,0,0,0)",
+                margin=dict(l=10, r=10, t=10, b=10),
+                height=360,
+                legend=dict(orientation="v")
+            )
+            st.plotly_chart(fig_donut, use_container_width=True)
+            st.markdown(
+                '<div class="insight-card"><b>Insight:</b> Low-performing categories contribute little to revenue and may be candidates for repositioning, targeted promotion, or discontinuation.</div>',
+                unsafe_allow_html=True
+            )
         st.markdown('</div>', unsafe_allow_html=True)
 
     with c2:
         st.markdown('<div class="section-card">', unsafe_allow_html=True)
-        st.subheader("Revenue Share Snapshot")
-        if not category_revenue.empty:
-            share_top5 = category_revenue.head(5).copy()
-            fig_share = px.treemap(
-                share_top5,
-                path=["product_category_name"],
-                values="total_revenue",
-                template="plotly_dark"
+        st.subheader("Top Customer Spending")
+        if not top_customers.empty and "total_spent" in top_customers.columns:
+            customer_label = "customer_city" if "customer_city" in top_customers.columns else top_customers.columns[0]
+            fig_cust = px.bar(
+                top_customers,
+                x="total_spent",
+                y=customer_label,
+                orientation="h",
+                template="plotly_dark",
+                text_auto=".2s"
             )
-            fig_share.update_layout(
+            fig_cust.update_layout(
                 paper_bgcolor="rgba(0,0,0,0)",
+                plot_bgcolor="rgba(0,0,0,0)",
                 margin=dict(l=10, r=10, t=10, b=10),
-                height=360
+                xaxis_title="Total Spent",
+                yaxis_title="Customer Segment",
+                height=360,
+                yaxis=dict(categoryorder="total ascending")
             )
-            st.plotly_chart(fig_share, use_container_width=True)
+            st.plotly_chart(fig_cust, use_container_width=True)
             st.markdown(
-                '<div class="insight-card"><b>Insight:</b> The leading categories account for a disproportionately large share of total revenue, reinforcing the need for focused category management.</div>',
+                '<div class="insight-card"><b>Insight:</b> High-value customer groups account for a disproportionate share of spending, supporting focused retention strategies.</div>',
                 unsafe_allow_html=True
             )
         st.markdown('</div>', unsafe_allow_html=True)
 
 # -----------------------------
-# PRODUCTS
+# PRODUCTS TAB
 # -----------------------------
 with tab2:
     st.markdown('<div class="section-card">', unsafe_allow_html=True)
-    st.subheader("Product Performance Explorer")
+    st.subheader("Product Category Explorer")
 
-    product_view = filtered_products.sort_values("total_revenue", ascending=False).head(20)
+    if not filtered_products.empty:
+        prod_view = (
+            filtered_products.groupby("product_category_name", as_index=False)[["total_revenue", "total_orders"]]
+            .sum()
+            .sort_values("total_revenue", ascending=False)
+            .head(top_n)
+        )
 
-    if not product_view.empty:
-        fig_prod = px.bar(
-            product_view.head(10),
-            x="total_revenue",
-            y="product_category_name",
-            orientation="h",
-            color="total_orders" if "total_orders" in product_view.columns else None,
+        fig_prod = px.scatter(
+            prod_view,
+            x="total_orders",
+            y="total_revenue",
+            size="total_revenue",
+            color="product_category_name",
             template="plotly_dark",
-            text_auto=".2s"
+            hover_name="product_category_name"
         )
         fig_prod.update_layout(
             paper_bgcolor="rgba(0,0,0,0)",
             plot_bgcolor="rgba(0,0,0,0)",
             margin=dict(l=10, r=10, t=10, b=10),
-            xaxis_title="Revenue",
-            yaxis_title="Category",
-            height=420,
-            yaxis=dict(categoryorder="total ascending")
+            xaxis_title="Total Orders",
+            yaxis_title="Total Revenue",
+            height=450,
+            showlegend=False
         )
         st.plotly_chart(fig_prod, use_container_width=True)
 
         st.markdown(
-            '<div class="insight-card"><b>Insight:</b> Product analysis reveals where revenue is strongest and helps identify categories with the highest strategic value.</div>',
+            '<div class="insight-card"><b>Insight:</b> This view shows how order volume and revenue interact across categories. Categories in the upper-right region are the most strategically valuable.</div>',
             unsafe_allow_html=True
         )
 
         if show_tables:
-            st.dataframe(product_view, use_container_width=True, height=320)
+            st.dataframe(prod_view, use_container_width=True, height=320)
     st.markdown('</div>', unsafe_allow_html=True)
 
 # -----------------------------
-# CUSTOMERS
+# CUSTOMERS TAB
 # -----------------------------
 with tab3:
-    left, right = st.columns((1, 1))
+    left, right = st.columns(2)
 
     with left:
         st.markdown('<div class="section-card">', unsafe_allow_html=True)
-        st.subheader("Top Customers by Spending")
-        customer_col = "customer_city" if "customer_city" in top_customers.columns else top_customers.columns[0]
-
-        fig_customers = px.bar(
-            top_customers,
-            x="total_spent",
-            y=customer_col,
-            orientation="h",
-            template="plotly_dark",
-            text_auto=".2s"
-        )
-        fig_customers.update_layout(
-            paper_bgcolor="rgba(0,0,0,0)",
-            plot_bgcolor="rgba(0,0,0,0)",
-            margin=dict(l=10, r=10, t=10, b=10),
-            xaxis_title="Total Spent",
-            yaxis_title="Customer Segment",
-            height=420,
-            yaxis=dict(categoryorder="total ascending")
-        )
-        st.plotly_chart(fig_customers, use_container_width=True)
-        st.markdown(
-            '<div class="insight-card"><b>Insight:</b> A relatively small customer segment contributes a large share of spending, supporting targeted retention and loyalty strategies.</div>',
-            unsafe_allow_html=True
-        )
+        st.subheader("Top Spending Customers")
+        if not top_customers.empty:
+            fig_top_cust = px.bar(
+                top_customers,
+                x="total_spent",
+                y="customer_city" if "customer_city" in top_customers.columns else top_customers.columns[0],
+                orientation="h",
+                template="plotly_dark",
+                text_auto=".2s"
+            )
+            fig_top_cust.update_layout(
+                paper_bgcolor="rgba(0,0,0,0)",
+                plot_bgcolor="rgba(0,0,0,0)",
+                margin=dict(l=10, r=10, t=10, b=10),
+                xaxis_title="Total Spending",
+                yaxis_title="Customer Group",
+                height=420,
+                yaxis=dict(categoryorder="total ascending")
+            )
+            st.plotly_chart(fig_top_cust, use_container_width=True)
         st.markdown('</div>', unsafe_allow_html=True)
 
     with right:
         st.markdown('<div class="section-card">', unsafe_allow_html=True)
-        st.subheader("Customer Distribution by State")
-        if "customer_state" in customers.columns and "total_spent" in customers.columns:
-            state_spend = customers.groupby("customer_state", as_index=False)["total_spent"].sum().sort_values("total_spent", ascending=False).head(10)
+        st.subheader("Customer Spending by State")
+        if {"customer_state", "total_spent"}.issubset(filtered_customers.columns):
+            state_spend = (
+                filtered_customers.groupby("customer_state", as_index=False)["total_spent"]
+                .sum()
+                .sort_values("total_spent", ascending=False)
+                .head(top_n)
+            )
             fig_state = px.bar(
                 state_spend,
                 x="customer_state",
@@ -448,49 +546,45 @@ with tab3:
                 plot_bgcolor="rgba(0,0,0,0)",
                 margin=dict(l=10, r=10, t=10, b=10),
                 xaxis_title="State",
-                yaxis_title="Total Spent",
+                yaxis_title="Total Spending",
                 height=420
             )
             st.plotly_chart(fig_state, use_container_width=True)
         st.markdown('</div>', unsafe_allow_html=True)
 
-    if show_tables:
-        st.markdown('<div class="section-card">', unsafe_allow_html=True)
-        st.subheader("Customer Table")
-        st.dataframe(top_customers, use_container_width=True, height=300)
-        st.markdown('</div>', unsafe_allow_html=True)
-
 # -----------------------------
-# REVIEWS
+# REVIEWS TAB
 # -----------------------------
 with tab4:
-    left, right = st.columns((1, 1))
+    left, right = st.columns(2)
 
     with left:
         st.markdown('<div class="section-card">', unsafe_allow_html=True)
         st.subheader("Review Score Distribution")
-        grouped_reviews = reviews.groupby("review_score_group", as_index=False).size()
-        grouped_reviews.columns = ["review_score_group", "count"]
+        if "review_score_group" in reviews.columns:
+            grouped_reviews = reviews.groupby("review_score_group", as_index=False).size()
+            grouped_reviews.columns = ["review_score_group", "count"]
 
-        fig_reviews = px.pie(
-            grouped_reviews,
-            names="review_score_group",
-            values="count",
-            hole=0.58,
-            template="plotly_dark"
-        )
-        fig_reviews.update_traces(textposition="inside", textinfo="percent+label")
-        fig_reviews.update_layout(
-            paper_bgcolor="rgba(0,0,0,0)",
-            plot_bgcolor="rgba(0,0,0,0)",
-            margin=dict(l=10, r=10, t=10, b=10),
-            height=400
-        )
-        st.plotly_chart(fig_reviews, use_container_width=True)
-        st.markdown(
-            '<div class="insight-card"><b>Insight:</b> Review scores cluster mainly around 4 and 5, indicating generally positive customer satisfaction.</div>',
-            unsafe_allow_html=True
-        )
+            fig_reviews = px.pie(
+                grouped_reviews,
+                names="review_score_group",
+                values="count",
+                hole=0.62,
+                template="plotly_dark"
+            )
+            fig_reviews.update_traces(textposition="inside", textinfo="percent+label")
+            fig_reviews.update_layout(
+                paper_bgcolor="rgba(0,0,0,0)",
+                plot_bgcolor="rgba(0,0,0,0)",
+                margin=dict(l=10, r=10, t=10, b=10),
+                height=380
+            )
+            st.plotly_chart(fig_reviews, use_container_width=True)
+
+            st.markdown(
+                '<div class="insight-card"><b>Insight:</b> Review behaviour is concentrated around positive scores, indicating a generally satisfactory customer experience.</div>',
+                unsafe_allow_html=True
+            )
         st.markdown('</div>', unsafe_allow_html=True)
 
     with right:
@@ -501,7 +595,7 @@ with tab4:
                 reviews.groupby("product_category_name", as_index=False)["avg_review_score"]
                 .mean()
                 .sort_values("avg_review_score", ascending=False)
-                .head(10)
+                .head(top_n)
             )
             fig_review_cat = px.bar(
                 review_cat,
@@ -517,14 +611,27 @@ with tab4:
                 margin=dict(l=10, r=10, t=10, b=10),
                 xaxis_title="Average Review Score",
                 yaxis_title="Category",
-                height=400,
+                height=380,
                 yaxis=dict(categoryorder="total ascending")
             )
             st.plotly_chart(fig_review_cat, use_container_width=True)
         st.markdown('</div>', unsafe_allow_html=True)
 
-    if show_tables:
-        st.markdown('<div class="section-card">', unsafe_allow_html=True)
-        st.subheader("Review Table")
-        st.dataframe(reviews.head(20), use_container_width=True, height=300)
-        st.markdown('</div>', unsafe_allow_html=True)
+# -----------------------------
+# RESEARCH NOTES TAB
+# -----------------------------
+with tab5:
+    st.markdown('<div class="section-card">', unsafe_allow_html=True)
+    st.subheader("Research Interpretation Notes")
+    st.markdown("""
+- The dashboard is built directly from the **Gold layer** of the Medallion architecture.
+- Revenue analysis reveals concentration in a small number of high-performing categories.
+- Customer analysis supports the importance of **high-value customer retention**.
+- Review analysis indicates generally positive satisfaction, with variation across categories.
+- The dashboard demonstrates how a Lakehouse-based pipeline can support business-ready analytics and executive decision-making.
+    """)
+    st.markdown(
+        '<div class="insight-card"><b>Dissertation value:</b> This dashboard acts as the presentation layer of the project and demonstrates how cleaned and aggregated data can be transformed into decision-support tools for stakeholders.</div>',
+        unsafe_allow_html=True
+    )
+    st.markdown('</div>', unsafe_allow_html=True)
