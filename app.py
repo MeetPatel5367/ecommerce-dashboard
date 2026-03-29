@@ -45,18 +45,18 @@ section[data-testid="stSidebar"] {
 }
 
 section[data-testid="stSidebar"] * {
-    color: #f8fafc !important;
+    /*color: #f8fafc !important;*/
 }
 
 section[data-testid="stSidebar"] label,
 section[data-testid="stSidebar"] p,
 section[data-testid="stSidebar"] div {
-    color: #f8fafc !important;
+    /*color: #f8fafc !important;*/
 }
 
 section[data-testid="stSidebar"] .stSelectbox div[data-baseweb="select"] > div {
     background: #f8fafc !important;
-    color: #0f172a !important;
+    /*color: #0f172a !important;*/
     border-radius: 10px !important;
     border: 1px solid #cbd5e1 !important;
 }
@@ -74,7 +74,7 @@ section[data-testid="stSidebar"] .stDownloadButton button {
 }
 
 section[data-testid="stSidebar"] .stCheckbox label {
-    color: #f8fafc !important;
+   /* color: #f8fafc !important;*/
     font-weight: 500 !important;
 }
 
