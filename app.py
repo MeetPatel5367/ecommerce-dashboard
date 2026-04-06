@@ -387,8 +387,8 @@ with tab1:
             )
             st.markdown('</div>', unsafe_allow_html=True)
 
+    st.markdown('<div class="section-card">', unsafe_allow_html=True)
     with right:
-        st.markdown('<div class="section-card">', unsafe_allow_html=True)
         st.subheader("Top Categories by Revenue")
         if not top_products.empty:
             fig_bar = px.bar(
