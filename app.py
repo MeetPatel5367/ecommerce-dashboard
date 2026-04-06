@@ -362,14 +362,14 @@ tab1, tab2, tab3, tab4, tab5 = st.tabs(
 # -----------------------------
 with tab1:
     filtered_monthly = pd.DataFrame({
-    "year_month": ["2024-01", "2024-02", "2024-03"],
-    "monthly_revenue": [1000, 1500, 1200]
-})
-top_products = pd.DataFrame({
-    "product_category_name": ["Category A", "Category B", "Category C"],
-    "total_revenue": [5000, 3000, 2000]
-})
-left, right = st.columns((1.25, 1))
+        "year_month": ["2024-01", "2024-02", "2024-03"],
+        "monthly_revenue": [1000, 1500, 1200]
+    })
+    top_products = pd.DataFrame({
+        "product_category_name": ["Category A", "Category B", "Category C"],
+        "total_revenue": [5000, 3000, 2000]
+    })
+    left, right = st.columns((1.25, 1))
 
     with left:
         st.markdown(
