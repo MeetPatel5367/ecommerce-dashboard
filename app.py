@@ -364,7 +364,7 @@ with tab1:
     left, right = st.columns((1.25, 1))
 
     with placeholder.container():
-    with left:
+        with left:
 
             st.markdown('<div class="section-card">', unsafe_allow_html=True)
             st.subheader("Monthly Revenue Trend")
