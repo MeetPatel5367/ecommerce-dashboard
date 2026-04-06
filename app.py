@@ -361,10 +361,8 @@ tab1, tab2, tab3, tab4, tab5 = st.tabs(
 # -----------------------------
 with tab1:
     left, right = st.columns((1.25, 1))
-    st.container()
+    st.markdown('<div class="section-card">', unsafe_allow_html=True)
     with left:
-        
-        st.markdown('<div class="section-card">', unsafe_allow_html=True)
         st.subheader("Monthly Revenue Trend")
         if not filtered_monthly.empty and {"year_month", "monthly_revenue"}.issubset(filtered_monthly.columns):
             fig_line = px.line(
