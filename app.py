@@ -361,38 +361,65 @@ tab1, tab2, tab3, tab4, tab5 = st.tabs(
 # OVERVIEW TAB
 # -----------------------------
 with tab1:
-    left, right = st.columns((1.25, 1))
+    filtered_monthly = pd.DataFrame({
+    "year_month": ["2024-01", "2024-02", "2024-03"],
+    "monthly_revenue": [1000, 1500, 1200]
+})
+top_products = pd.DataFrame({
+    "product_category_name": ["Category A", "Category B", "Category C"],
+    "total_revenue": [5000, 3000, 2000]
+})
+left, right = st.columns((1.25, 1))
 
     with left:
-        with placeholder.container():
+        st.markdown(
+            """
+            <div style="
+                background-color: #1e1e1e;
+                padding: 15px;
+                border-radius: 10px;
+                box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            ">
+            """,
+            unsafe_allow_html=True
+        )
 
-            st.markdown('<div class="section-card">', unsafe_allow_html=True)
-            st.subheader("Monthly Revenue Trend")
-            if not filtered_monthly.empty and {"year_month", "monthly_revenue"}.issubset(filtered_monthly.columns):
-                fig_line = px.line(
-                    filtered_monthly,
-                    x="year_month",
-                    y="monthly_revenue",
-                    markers=True,
-                    template="plotly_dark"
-                )
-                fig_line.update_layout(
-                    paper_bgcolor="rgba(0,0,0,0)",
-                    plot_bgcolor="rgba(0,0,0,0)",
-                    margin=dict(l=10, r=10, t=10, b=10),
-                    xaxis_title="Month",
-                    yaxis_title="Monthly Revenue",
-                    height=360
-                )
-                st.plotly_chart(fig_line, use_container_width=True)
-                st.markdown(
-                    '<div class="insight-card"><b>Insight:</b> The revenue trend helps identify seasonal demand patterns and periods of strong or weak commercial performance.</div>',
-                    unsafe_allow_html=True
-                )
-            st.markdown('</div>', unsafe_allow_html=True)
+        st.subheader("Monthly Revenue Trend")
+        if not filtered_monthly.empty and {"year_month", "monthly_revenue"}.issubset(filtered_monthly.columns):
+            fig_line = px.line(
+                filtered_monthly,
+                x="year_month",
+                y="monthly_revenue",
+                markers=True,
+                template="plotly_dark"
+            )
+            fig_line.update_layout(
+                paper_bgcolor="rgba(0,0,0,0)",
+                plot_bgcolor="rgba(0,0,0,0)",
+                margin=dict(l=10, r=10, t=10, b=10),
+                xaxis_title="Month",
+                yaxis_title="Monthly Revenue",
+                height=360
+            )
+            st.plotly_chart(fig_line, use_container_width=True)
+            st.markdown(
+                '<p style="color:#ccc;">Insight: The revenue trend helps identify seasonal demand patterns and periods of strong or weak commercial performance.</p>',
+                unsafe_allow_html=True
+            )
+        st.markdown('</div>', unsafe_allow_html=True)
 
     with right:
-        st.markdown('<div class="section-card">', unsafe_allow_html=True)
+        st.markdown(
+            """
+            <div style="
+                background-color: #1e1e1e;
+                padding: 15px;
+                border-radius: 10px;
+                box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            ">
+            """,
+            unsafe_allow_html=True
+        )
         st.subheader("Top Categories by Revenue")
         if not top_products.empty:
             fig_bar = px.bar(
@@ -412,13 +439,9 @@ with tab1:
                 height=360,
                 yaxis=dict(categoryorder="total ascending")
             )
-            st.plotly_chart(fig_bar, use_container_width=True)
-            top_cat = top_products.iloc[0]["product_category_name"]
-            st.markdown(
-                f'<div class="insight-card"><b>Insight:</b> The strongest category in the current filtered view is <b>{top_cat}</b>, indicating concentration of demand in a limited set of product areas.</div>',
-                unsafe_allow_html=True
-            )
-        st.markdown('</div>', unsafe_allow_html=True)
+           st.plotly_chart(fig_bar, use_container_width=True)
+
+        st.markdown("</div>", unsafe_allow_html=True)  # Close div
 
     c1, c2 = st.columns(2)
     with c1:
