@@ -365,7 +365,7 @@ with tab1:
     with left:
         st.subheader("Monthly Revenue Trend")
         if not filtered_monthly.empty and {"year_month", "monthly_revenue"}.issubset(filtered_monthly.columns):
-        st.markdown('<div class="section-card">', unsafe_allow_html=True)
+            st.markdown('<div class="section-card">', unsafe_allow_html=True)
             fig_line = px.line(
                 filtered_monthly,
                 x="year_month",
@@ -386,12 +386,12 @@ with tab1:
                 '<div class="insight-card"><b>Insight:</b> The revenue trend helps identify seasonal demand patterns and periods of strong or weak commercial performance.</div>',
                 unsafe_allow_html=True
             )
-        st.markdown('</div>', unsafe_allow_html=True)
+            st.markdown('</div>', unsafe_allow_html=True)
 
     with right:
         st.subheader("Top Categories by Revenue")
         if not top_products.empty:
-        st.markdown('<div class="section-card">', unsafe_allow_html=True)
+            st.markdown('<div class="section-card">', unsafe_allow_html=True)
             fig_bar = px.bar(
                 top_products,
                 x="total_revenue",
@@ -415,13 +415,13 @@ with tab1:
                 f'<div class="insight-card"><b>Insight:</b> The strongest category in the current filtered view is <b>{top_cat}</b>, indicating concentration of demand in a limited set of product areas.</div>',
                 unsafe_allow_html=True
             )
-        st.markdown('</div>', unsafe_allow_html=True)
+            st.markdown('</div>', unsafe_allow_html=True)
 
     c1, c2 = st.columns(2)
     with c1:
         st.subheader("Low Performing Categories")
         if not low_category_revenue.empty:
-        st.markdown('<div class="section-card">', unsafe_allow_html=True)
+            st.markdown('<div class="section-card">', unsafe_allow_html=True)
             fig_donut = px.pie(
                 low_category_revenue,
                 names="product_category_name",
@@ -442,7 +442,7 @@ with tab1:
                 '<div class="insight-card"><b>Insight:</b> Low-performing categories contribute little to revenue and may be candidates for repositioning, targeted promotion, or discontinuation.</div>',
                 unsafe_allow_html=True
             )
-        st.markdown('</div>', unsafe_allow_html=True)
+            st.markdown('</div>', unsafe_allow_html=True)
 
     with c2:
         st.subheader("Top Customer Spending")
@@ -480,7 +480,7 @@ with tab2:
     st.subheader("Product Category Explorer")
 
     if not filtered_products.empty:
-    st.markdown('<div class="section-card">', unsafe_allow_html=True)
+        st.markdown('<div class="section-card">', unsafe_allow_html=True)
         prod_view = (
             filtered_products.groupby("product_category_name", as_index=False)[["total_revenue", "total_orders"]]
             .sum()
@@ -515,7 +515,7 @@ with tab2:
 
         if show_tables:
             st.dataframe(prod_view, use_container_width=True, height=320)
-    st.markdown('</div>', unsafe_allow_html=True)
+        st.markdown('</div>', unsafe_allow_html=True)
 
 # -----------------------------
 # CUSTOMERS TAB
@@ -526,7 +526,7 @@ with tab3:
     with left:
         st.subheader("Top Spending Customers")
         if not top_customers.empty:
-        st.markdown('<div class="section-card">', unsafe_allow_html=True)
+            st.markdown('<div class="section-card">', unsafe_allow_html=True)
             fig_top_cust = px.bar(
                 top_customers,
                 x="total_spent",
@@ -545,12 +545,12 @@ with tab3:
                 yaxis=dict(categoryorder="total ascending")
             )
             st.plotly_chart(fig_top_cust, use_container_width=True)
-        st.markdown('</div>', unsafe_allow_html=True)
+            st.markdown('</div>', unsafe_allow_html=True)
 
     with right:
         st.subheader("Customer Spending by State")
         if {"customer_state", "total_spent"}.issubset(filtered_customers.columns):
-        st.markdown('<div class="section-card">', unsafe_allow_html=True)
+            st.markdown('<div class="section-card">', unsafe_allow_html=True)
             state_spend = (
                 filtered_customers.groupby("customer_state", as_index=False)["total_spent"]
                 .sum()
@@ -573,7 +573,7 @@ with tab3:
                 height=420
             )
             st.plotly_chart(fig_state, use_container_width=True)
-        st.markdown('</div>', unsafe_allow_html=True)
+            st.markdown('</div>', unsafe_allow_html=True)
 
 # -----------------------------
 # REVIEWS TAB
@@ -584,7 +584,7 @@ with tab4:
     with left:
         st.subheader("Review Score Distribution")
         if "review_score_group" in reviews.columns:
-        st.markdown('<div class="section-card">', unsafe_allow_html=True)
+            st.markdown('<div class="section-card">', unsafe_allow_html=True)
             grouped_reviews = reviews.groupby("review_score_group", as_index=False).size()
             grouped_reviews.columns = ["review_score_group", "count"]
 
@@ -608,12 +608,12 @@ with tab4:
                 '<div class="insight-card"><b>Insight:</b> Review behaviour is concentrated around positive scores, indicating a generally satisfactory customer experience.</div>',
                 unsafe_allow_html=True
             )
-        st.markdown('</div>', unsafe_allow_html=True)
+            st.markdown('</div>', unsafe_allow_html=True)
 
     with right:
         st.subheader("Average Review by Category")
         if {"product_category_name", "avg_review_score"}.issubset(reviews.columns):
-        st.markdown('<div class="section-card">', unsafe_allow_html=True)
+            st.markdown('<div class="section-card">', unsafe_allow_html=True)
             review_cat = (
                 reviews.groupby("product_category_name", as_index=False)["avg_review_score"]
                 .mean()
@@ -638,7 +638,7 @@ with tab4:
                 yaxis=dict(categoryorder="total ascending")
             )
             st.plotly_chart(fig_review_cat, use_container_width=True)
-        st.markdown('</div>', unsafe_allow_html=True)
+            st.markdown('</div>', unsafe_allow_html=True)
 
 # -----------------------------
 # RESEARCH NOTES TAB
