@@ -364,7 +364,7 @@ with tab1:
 
     with left:
         st.markdown('<div class="section-card">', unsafe_allow_html=True)
-        st.subheader("Monthly Revenue Trend")
+        st.header("Monthly Revenue Trend")
         if not filtered_monthly.empty and {"year_month", "monthly_revenue"}.issubset(filtered_monthly.columns):
             fig_line = px.line(
                 filtered_monthly,
