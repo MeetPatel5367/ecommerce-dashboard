@@ -363,7 +363,7 @@ with tab1:
     left, right = st.columns((1.25, 1))
 
     with left:
-        st.container():
+        st.container()
         st.markdown('<div class="section-card">', unsafe_allow_html=True)
         st.subheader("Monthly Revenue Trend")
         if not filtered_monthly.empty and {"year_month", "monthly_revenue"}.issubset(filtered_monthly.columns):
