@@ -363,9 +363,9 @@ with tab1:
     left, right = st.columns((1.25, 1))
 
     with left:
-        st.markdown('<div class="section-card">', unsafe_allow_html=True)
         st.subheader("Monthly Revenue Trend")
         if not filtered_monthly.empty and {"year_month", "monthly_revenue"}.issubset(filtered_monthly.columns):
+        st.markdown('<div class="section-card">', unsafe_allow_html=True)
             fig_line = px.line(
                 filtered_monthly,
                 x="year_month",
@@ -389,9 +389,9 @@ with tab1:
         st.markdown('</div>', unsafe_allow_html=True)
 
     with right:
-        st.markdown('<div class="section-card">', unsafe_allow_html=True)
         st.subheader("Top Categories by Revenue")
         if not top_products.empty:
+        st.markdown('<div class="section-card">', unsafe_allow_html=True)
             fig_bar = px.bar(
                 top_products,
                 x="total_revenue",
@@ -419,9 +419,9 @@ with tab1:
 
     c1, c2 = st.columns(2)
     with c1:
-        st.markdown('<div class="section-card">', unsafe_allow_html=True)
         st.subheader("Low Performing Categories")
         if not low_category_revenue.empty:
+        st.markdown('<div class="section-card">', unsafe_allow_html=True)
             fig_donut = px.pie(
                 low_category_revenue,
                 names="product_category_name",
@@ -445,9 +445,9 @@ with tab1:
         st.markdown('</div>', unsafe_allow_html=True)
 
     with c2:
-        st.markdown('<div class="section-card">', unsafe_allow_html=True)
         st.subheader("Top Customer Spending")
         if not top_customers.empty and "total_spent" in top_customers.columns:
+        st.markdown('<div class="section-card">', unsafe_allow_html=True)
             customer_label = "customer_city" if "customer_city" in top_customers.columns else top_customers.columns[0]
             fig_cust = px.bar(
                 top_customers,
@@ -477,10 +477,10 @@ with tab1:
 # PRODUCTS TAB
 # -----------------------------
 with tab2:
-    st.markdown('<div class="section-card">', unsafe_allow_html=True)
     st.subheader("Product Category Explorer")
 
     if not filtered_products.empty:
+    st.markdown('<div class="section-card">', unsafe_allow_html=True)
         prod_view = (
             filtered_products.groupby("product_category_name", as_index=False)[["total_revenue", "total_orders"]]
             .sum()
@@ -524,9 +524,9 @@ with tab3:
     left, right = st.columns(2)
 
     with left:
-        st.markdown('<div class="section-card">', unsafe_allow_html=True)
         st.subheader("Top Spending Customers")
         if not top_customers.empty:
+        st.markdown('<div class="section-card">', unsafe_allow_html=True)
             fig_top_cust = px.bar(
                 top_customers,
                 x="total_spent",
@@ -548,9 +548,9 @@ with tab3:
         st.markdown('</div>', unsafe_allow_html=True)
 
     with right:
-        st.markdown('<div class="section-card">', unsafe_allow_html=True)
         st.subheader("Customer Spending by State")
         if {"customer_state", "total_spent"}.issubset(filtered_customers.columns):
+        st.markdown('<div class="section-card">', unsafe_allow_html=True)
             state_spend = (
                 filtered_customers.groupby("customer_state", as_index=False)["total_spent"]
                 .sum()
@@ -582,9 +582,9 @@ with tab4:
     left, right = st.columns(2)
 
     with left:
-        st.markdown('<div class="section-card">', unsafe_allow_html=True)
         st.subheader("Review Score Distribution")
         if "review_score_group" in reviews.columns:
+        st.markdown('<div class="section-card">', unsafe_allow_html=True)
             grouped_reviews = reviews.groupby("review_score_group", as_index=False).size()
             grouped_reviews.columns = ["review_score_group", "count"]
 
@@ -611,9 +611,9 @@ with tab4:
         st.markdown('</div>', unsafe_allow_html=True)
 
     with right:
-        st.markdown('<div class="section-card">', unsafe_allow_html=True)
         st.subheader("Average Review by Category")
         if {"product_category_name", "avg_review_score"}.issubset(reviews.columns):
+        st.markdown('<div class="section-card">', unsafe_allow_html=True)
             review_cat = (
                 reviews.groupby("product_category_name", as_index=False)["avg_review_score"]
                 .mean()
@@ -644,8 +644,8 @@ with tab4:
 # RESEARCH NOTES TAB
 # -----------------------------
 with tab5:
-    st.markdown('<div class="section-card">', unsafe_allow_html=True)
     st.subheader("Research Interpretation Notes")
+    st.markdown('<div class="section-card">', unsafe_allow_html=True)
     st.markdown("""
 - The dashboard is built directly from the **Gold layer** of the Medallion architecture.
 - Revenue analysis reveals concentration in a small number of high-performing categories.
