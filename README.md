@@ -1,6 +1,6 @@
-# 🌐 Enterprise E-commerce Research Analytics Platform
+#  Enterprise E-commerce Research Analytics Platform
 
-## 📌 Project Overview
+##  Project Overview
 
 This project is a professional and interactive e-commerce analytics dashboard developed using Streamlit. It is designed to analyse processed sales, customer, product, and review data and present business insights in a clear, modern, and research-oriented format.
 
@@ -8,7 +8,7 @@ The dashboard helps users understand revenue trends, customer spending behaviour
 
 ---
 
-## 🎯 Objectives
+##  Objectives
 
 The main objectives of this project are:
 
@@ -21,7 +21,7 @@ The main objectives of this project are:
 
 ---
 
-## 🚀 Features
+##  Features
 
 This dashboard includes the following features:
 
@@ -42,7 +42,7 @@ This dashboard includes the following features:
 
 ---
 
-## ⚙️ Technologies Used
+##  Technologies Used
 
 The project is built using the following technologies:
 
@@ -53,7 +53,7 @@ The project is built using the following technologies:
 
 ---
 
-## 📂 Dataset
+##  Dataset
 
 The dashboard uses the following datasets:
 
@@ -66,7 +66,7 @@ These files are stored inside the **data** folder.
 
 ---
 
-## 📁 Project Structure
+##  Project Structure
 
 ```id="d82f1a"
 ecommerce-dashboard/
