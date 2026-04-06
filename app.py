@@ -365,30 +365,30 @@ with tab1:
     with left:
         with st.container():
 
-        st.markdown('<div class="section-card">', unsafe_allow_html=True)
-        st.subheader("Monthly Revenue Trend")
-        if not filtered_monthly.empty and {"year_month", "monthly_revenue"}.issubset(filtered_monthly.columns):
-            fig_line = px.line(
-                filtered_monthly,
-                x="year_month",
-                y="monthly_revenue",
-                markers=True,
-                template="plotly_dark"
-            )
-            fig_line.update_layout(
-                paper_bgcolor="rgba(0,0,0,0)",
-                plot_bgcolor="rgba(0,0,0,0)",
-                margin=dict(l=10, r=10, t=10, b=10),
-                xaxis_title="Month",
-                yaxis_title="Monthly Revenue",
-                height=360
-            )
-            st.plotly_chart(fig_line, use_container_width=True)
-            st.markdown(
-                '<div class="insight-card"><b>Insight:</b> The revenue trend helps identify seasonal demand patterns and periods of strong or weak commercial performance.</div>',
-                unsafe_allow_html=True
-            )
-        st.markdown('</div>', unsafe_allow_html=True)
+            st.markdown('<div class="section-card">', unsafe_allow_html=True)
+            st.subheader("Monthly Revenue Trend")
+            if not filtered_monthly.empty and {"year_month", "monthly_revenue"}.issubset(filtered_monthly.columns):
+                fig_line = px.line(
+                    filtered_monthly,
+                    x="year_month",
+                    y="monthly_revenue",
+                    markers=True,
+                    template="plotly_dark"
+                )
+                fig_line.update_layout(
+                    paper_bgcolor="rgba(0,0,0,0)",
+                    plot_bgcolor="rgba(0,0,0,0)",
+                    margin=dict(l=10, r=10, t=10, b=10),
+                    xaxis_title="Month",
+                    yaxis_title="Monthly Revenue",
+                    height=360
+                )
+                st.plotly_chart(fig_line, use_container_width=True)
+                st.markdown(
+                    '<div class="insight-card"><b>Insight:</b> The revenue trend helps identify seasonal demand patterns and periods of strong or weak commercial performance.</div>',
+                    unsafe_allow_html=True
+                )
+            st.markdown('</div>', unsafe_allow_html=True)
 
     with right:
         st.markdown('<div class="section-card">', unsafe_allow_html=True)
