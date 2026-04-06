@@ -385,11 +385,9 @@ with tab1:
                 '<div class="insight-card"><b>Insight:</b> The revenue trend helps identify seasonal demand patterns and periods of strong or weak commercial performance.</div>',
                 unsafe_allow_html=True
             )
-            st.markdown('</div>', unsafe_allow_html=True)
+            
 
-    st.markdown('<div class="section-card">', unsafe_allow_html=True)
     with right:
-        st.subheader("Top Categories by Revenue")
         if not top_products.empty:
             fig_bar = px.bar(
                 top_products,
@@ -414,8 +412,9 @@ with tab1:
                 f'<div class="insight-card"><b>Insight:</b> The strongest category in the current filtered view is <b>{top_cat}</b>, indicating concentration of demand in a limited set of product areas.</div>',
                 unsafe_allow_html=True
             )
-        st.markdown('</div>', unsafe_allow_html=True)
 
+
+    st.markdown('</div>', unsafe_allow_html=True)
     c1, c2 = st.columns(2)
     with c1:
         st.markdown('<div class="section-card">', unsafe_allow_html=True)
