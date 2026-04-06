@@ -447,7 +447,7 @@ with tab1:
     with c2:
         st.subheader("Top Customer Spending")
         if not top_customers.empty and "total_spent" in top_customers.columns:
-        st.markdown('<div class="section-card">', unsafe_allow_html=True)
+            st.markdown('<div class="section-card">', unsafe_allow_html=True)
             customer_label = "customer_city" if "customer_city" in top_customers.columns else top_customers.columns[0]
             fig_cust = px.bar(
                 top_customers,
@@ -471,7 +471,7 @@ with tab1:
                 '<div class="insight-card"><b>Insight:</b> High-value customer groups account for a disproportionate share of spending, supporting focused retention strategies.</div>',
                 unsafe_allow_html=True
             )
-        st.markdown('</div>', unsafe_allow_html=True)
+            st.markdown('</div>', unsafe_allow_html=True)
 
 # -----------------------------
 # PRODUCTS TAB
