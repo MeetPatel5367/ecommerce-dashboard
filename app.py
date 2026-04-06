@@ -363,7 +363,8 @@ with tab1:
     left, right = st.columns((1.25, 1))
 
     with left:
-        st.html("""<div class='section-card'>""")
+        st.container():
+        st.markdown('<div class="section-card">', unsafe_allow_html=True)
         st.subheader("Monthly Revenue Trend")
         if not filtered_monthly.empty and {"year_month", "monthly_revenue"}.issubset(filtered_monthly.columns):
             fig_line = px.line(
@@ -386,7 +387,7 @@ with tab1:
                 '<div class="insight-card"><b>Insight:</b> The revenue trend helps identify seasonal demand patterns and periods of strong or weak commercial performance.</div>',
                 unsafe_allow_html=True
             )
-            st.html("'"<div class="section-card">"'")
+            st.markdown('</div>', unsafe_allow_html=True)
 
     with right:
         st.markdown('<div class="section-card">', unsafe_allow_html=True)
