@@ -439,8 +439,7 @@ with tab1:
                 height=360,
                 yaxis=dict(categoryorder="total ascending")
             )
-           st.plotly_chart(fig_bar, use_container_width=True)
-
+            st.plotly_chart(fig_bar, use_container_width=True)
         st.markdown("</div>", unsafe_allow_html=True)  # Close div
 
     c1, c2 = st.columns(2)
