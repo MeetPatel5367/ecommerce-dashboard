@@ -363,7 +363,7 @@ with tab1:
     left, right = st.columns((1.25, 1))
 
     with left:
-        st.html("'"<div class="section-card">"'")
+        st.html("'"<div class='section-card'>"'")
         st.subheader("Monthly Revenue Trend")
         if not filtered_monthly.empty and {"year_month", "monthly_revenue"}.issubset(filtered_monthly.columns):
             fig_line = px.line(
