@@ -55,7 +55,7 @@ section[data-testid="stSidebar"] div {
 }
 
 section[data-testid="stSidebar"] p{
-    color: rgb(49, 51, 63) !important;
+    /*color: rgb(49, 51, 63) !important;*/
 }
 
 section[data-testid="stSidebar"] .stSelectbox div[data-baseweb="select"] > div {
