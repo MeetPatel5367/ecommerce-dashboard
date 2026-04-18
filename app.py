@@ -71,7 +71,7 @@ section[data-testid="stSidebar"] .stSelectbox svg {
 
 section[data-testid="stSidebar"] .stDownloadButton button {
     background: #f8fafc !important;
-    color: #0f172a !important;
+    color: var(--text-main);
     border: none !important;
     border-radius: 10px !important;
     font-weight: 600 !important;
@@ -83,19 +83,19 @@ section[data-testid="stSidebar"] .stCheckbox label {
 }
 
 h1, h2, h3 {
-    color: #f8fafc !important;
+    color: var(--text-main);
 }
 
 .dashboard-title {
     font-size: 2.35rem;
     font-weight: 800;
-    color: #ffffff;
+    color: var(--text-main);
     margin-bottom: 0.2rem;
     letter-spacing: 0.2px;
 }
 
 .dashboard-subtitle {
-    color: #cbd5e1;
+    color: var(--text-soft);
     font-size: 1rem;
     margin-bottom: 1rem;
     max-width: 1100px;
