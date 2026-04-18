@@ -200,6 +200,9 @@ footer {
 .block-container {
     padding-top: 0.5rem !important;
 }
+text.legendtext {
+    fill: rgb(255, 255, 255) !important;
+}
 </style>
 """, unsafe_allow_html=True)
 
